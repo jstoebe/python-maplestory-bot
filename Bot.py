@@ -5,11 +5,11 @@ Bot is a class that can do programmable actions. Initialize a bot and set
 a series of actions for it to do.
 """
 
-import pyautogui as auto
+import pyautogui
 import sys
 import time
 
-auto.FAILSAFE = True
+pyautogui.FAILSAFE = True
 
 class NoKeyboardException(Exception):
   def __init__(self, value):
@@ -19,7 +19,7 @@ class NoKeyboardException(Exception):
 
 class Bot():
   def __init__(self):
-    self.osk = auto.locateOnScreen('data/osk.png')
+    self.osk = pyautogui.locateOnScreen('data/osk.png')
     if self.osk is not None:
       print "On-Screen Keyboard found!"
     else:
@@ -40,21 +40,21 @@ class Bot():
     return output
 
   def _moveTo(self, coord):
-    auto.moveTo(self.osk[0] + coord[0], self.osk[1] + coord[1])
+    pyautogui.moveTo(self.osk[0] + coord[0], self.osk[1] + coord[1])
 
   def click(self, key, duration):
     self._moveTo(key)
-    auto.mouseDown()
+    pyautogui.mouseDown()
     time.sleep(duration)
-    auto.mouseUp()
+    pyautogui.mouseUp()
     time.sleep(duration)
 
   def checkHealth(self, pot_key):
-    if not auto.locateOnScreen('data/hp.png'):
+    if not pyautogui.locateOnScreen('data/hp.png'):
       self.click(pot_key, 0.25)
       self.hp_pots_used += 1
 
   def checkMana(self, pot_key):
-    if not auto.locateOnScreen('data/mana.png'):
+    if not pyautogui.locateOnScreen('data/mana.png'):
       self.click(pot_key, 0.25)
       self.mana_pots_used += 1
