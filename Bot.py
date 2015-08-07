@@ -20,9 +20,7 @@ class NoKeyboardException(Exception):
 class Bot():
   def __init__(self):
     self.osk = pyautogui.locateOnScreen('data/osk.png')
-    if self.osk is not None:
-      print "On-Screen Keyboard found!"
-    else:
+    if self.osk is None:
       raise NoKeyboardException("No On-Screen Keyboard found. "
                                 "Try redo-ing your screenshot")
     self.time_created = time.time()
@@ -32,11 +30,17 @@ class Bot():
   def __str__(self):
     output = "\n" * 50
     output += "Time started: %s\n" % time.ctime(self.time_created)
-    output +=  "Time now: %s\n" % time.ctime()
-    output +=  "Time elapsed: %d\n" % (time.time() - self.time_created)
-    output +=  "=" * 80
-    output +=  "\nHealth potions used: %d\n" % self.hp_pots_used
-    output +=  "Mana potions used: %d\n" % self.mana_pots_used
+    output += "Time now: %s\n" % time.ctime()
+    timeDifference = time.time() - self.time_created
+    hours = timeDifference % 3600
+    minutes = (timeDifference - (hours * 3600)) % 60
+    seconds = (timeDifference - (hours * 3600) - (minutes * 60))
+    timeElapsedString = "%d hours, %d minutes, %d seconds" % (
+        hours, minutes, seconds)
+    output += "Time elapsed: %d seconds\n" % (time.time() - self.time_created)
+    output += "=" * 80
+    output += "\nHealth potions used: %d\n" % self.hp_pots_used
+    output += "Mana potions used: %d\n" % self.mana_pots_used
     return output
 
   def _moveTo(self, coord):
