@@ -35,9 +35,8 @@ class Bot():
     hours = timeDifference % 3600
     minutes = (timeDifference - (hours * 3600)) % 60
     seconds = (timeDifference - (hours * 3600) - (minutes * 60))
-    timeElapsedString = "%d hours, %d minutes, %d seconds" % (
+    output += "Time elapsed: %d hours, %d minutes, %d seconds\n" % (
         hours, minutes, seconds)
-    output += "Time elapsed: %d seconds\n" % (time.time() - self.time_created)
     output += "=" * 80
     output += "\nHealth potions used: %d\n" % self.hp_pots_used
     output += "Mana potions used: %d\n" % self.mana_pots_used
