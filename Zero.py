@@ -46,6 +46,14 @@ def clickForTime(duration):
 def moveTo(osk, coord):
   auto.moveTo(osk[0] + coord[0], osk[1] + coord[1])
 
+def checkHealth():
+  # Check for low hp and use a pot if low.
+  if not auto.locateOnScreen('hp.png'):
+    hp_pots_used += 1
+    print "Potions used: " + str(hp_pots_used)
+    moveTo(osk, ctrl)
+    auto.click()
+
 def main():
   osk = auto.locateOnScreen('data/osk.png')
   if osk is not None:
@@ -59,12 +67,7 @@ def main():
   iterations_run = 0
 
   while True:
-    # Check for low hp and use a pot if low.
-    if not auto.locateCenterOnScreen('data/hp.png'):
-      hp_pots_used += 1
-      print "Potions used: " + str(hp_pots_used)
-      moveTo(osk, ctrl)
-      auto.click()
+    checkHealth()
 
     moveTo(osk, left)
     clickForTime(0.1)
@@ -80,13 +83,7 @@ def main():
       clickForTime(0.25)
       clickForTime(0.25)
 
-    # Check for low hp and use a pot if low.
-    if not auto.locateCenterOnScreen('hp.png'):
-      hp_pots_used += 1
-      print "Potions used: " + str(hp_pots_used)
-      moveTo(osk, ctrl)
-      auto.click()
-
+    checkHealth()
     moveTo(osk, right)
     clickForTime(1.2)
     moveTo(osk, d)
@@ -107,7 +104,7 @@ def main():
       clickForTime(0.25)
 
     # Buff self every 10 iterations
-    if iterations_run %10 == 0:
+    if iterations_run % 10 == 0:
       moveTo(osk, end)
       clickForTime(0.25)
 
