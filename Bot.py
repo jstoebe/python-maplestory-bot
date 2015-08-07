@@ -5,6 +5,7 @@ Bot is a class that can do programmable actions. Initialize a bot and set
 a series of actions for it to do.
 """
 
+import math
 import pyautogui
 import sys
 import time
@@ -32,11 +33,10 @@ class Bot():
     output += "Time started: %s\n" % time.ctime(self.time_created)
     output += "Time now: %s\n" % time.ctime()
     timeDifference = time.time() - self.time_created
-    hours = timeDifference % 3600
-    minutes = (timeDifference - (hours * 3600)) % 60
-    seconds = (timeDifference - (hours * 3600) - (minutes * 60))
-    output += "Time elapsed: %d hours, %d minutes, %d seconds\n" % (
-        hours, minutes, seconds)
+    hours = math.floor(timeDifference / 3600)
+    minutes = math.floor((timeDifference % 3600) / 60)
+    seconds = math.floor(timeDifference % 3600 % 60)
+    output += "Time elapsed: %d:%d:%d\n" % (hours, minutes, seconds)
     output += "=" * 80
     output += "\nHealth potions used: %d\n" % self.hp_pots_used
     output += "Mana potions used: %d\n" % self.mana_pots_used
