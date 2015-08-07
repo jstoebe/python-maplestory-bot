@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import sys
+import time
 
 from Bot import Bot
 from Keys import Keys
@@ -27,10 +27,12 @@ need to find a place to stand where mobs do not or can not attack you.
 """
 
 def main():
-  bot = Bot()    
+  bot = Bot()
+  time.sleep(1)
   iterations_run = 0
 
   while True:
+    print str(bot)
     bot.checkHealth(Keys.CTRL)
     bot.click(Keys.LEFT, 0.1)
     bot.click(Keys.D, 0.25)
@@ -42,6 +44,7 @@ def main():
       bot.click(Keys.A, 0.25)
       bot.click(Keys.A, 0.25)
 
+    print str(bot)
     bot.checkHealth(Keys.CTRL)
     bot.click(Keys.RIGHT, 0.5)
     bot.click(Keys.D, 0.25)
@@ -60,6 +63,7 @@ def main():
     # Buff self every 10 iterations
     if iterations_run % 10 == 0:
       bot.click(Keys.END, 0.25)
+    print str(bot)
 
   iterations_run += 1
 

@@ -30,14 +30,14 @@ class Bot():
     self.mana_pots_used = 0
 
   def __str__(self):
-    for i in range(0, 50):
-      print "\n"
-    print "Time started: %s" % time.ctime(self.time_created)
-    print "Time now: %s" % time.ctime()
-    print "Time elapsed: %d" % (time.time() - self.time_created)
-    print "=" * 80
-    print "Health potions used: %d" % self.hp_pots_used
-    print "Mana potions used: %d" % self.mana_pots_used
+    output = "\n" * 50
+    output += "Time started: %s\n" % time.ctime(self.time_created)
+    output +=  "Time now: %s\n" % time.ctime()
+    output +=  "Time elapsed: %d\n" % (time.time() - self.time_created)
+    output +=  "=" * 80
+    output +=  "\nHealth potions used: %d\n" % self.hp_pots_used
+    output +=  "Mana potions used: %d\n" % self.mana_pots_used
+    return output
 
   def _moveTo(self, coord):
     auto.moveTo(self.osk[0] + coord[0], self.osk[1] + coord[1])
