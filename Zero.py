@@ -47,7 +47,7 @@ def moveTo(osk, coord):
   auto.moveTo(osk[0] + coord[0], osk[1] + coord[1])
 
 def main():
-  osk = auto.locateOnScreen('osk.png')
+  osk = auto.locateOnScreen('data/osk.png')
   if osk is not None:
     print "On-Screen Keyboard found!"
   else:
@@ -59,9 +59,8 @@ def main():
   iterations_run = 0
 
   while True:
-
     # Check for low hp and use a pot if low.
-    if not auto.locateCenterOnScreen('hp.png'):
+    if not auto.locateCenterOnScreen('data/hp.png'):
       hp_pots_used += 1
       print "Potions used: " + str(hp_pots_used)
       moveTo(osk, ctrl)
@@ -75,12 +74,12 @@ def main():
     moveTo(osk, s)
     clickForTime(0.25)
     clickForTime(0.25)
-    if iterations_run % 2 == 1:      
+    if iterations_run % 2 == 1:
       moveTo(osk, a)
       clickForTime(0.25)
       clickForTime(0.25)
       clickForTime(0.25)
-    
+
     # Check for low hp and use a pot if low.
     if not auto.locateCenterOnScreen('hp.png'):
       hp_pots_used += 1
