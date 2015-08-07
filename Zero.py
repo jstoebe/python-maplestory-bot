@@ -39,6 +39,7 @@ def main():
     bot.click(Keys.D, 0.25)
     bot.click(Keys.S, 0.25)
     bot.click(Keys.S, 0.25)
+    bot.checkHealth(Keys.CTRL)
     if iterations_run % 2 == 1:
       bot.click(Keys.A, 0.25)
       bot.click(Keys.A, 0.25)
@@ -51,6 +52,7 @@ def main():
     bot.click(Keys.D, 0.25)
     bot.click(Keys.S, 0.25)
     bot.click(Keys.S, 0.25)
+    bot.checkHealth(Keys.CTRL)
     if iterations_run % 2 == 0:
       bot.click(Keys.A, 0.25)
       bot.click(Keys.A, 0.25)
