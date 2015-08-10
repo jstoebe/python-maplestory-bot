@@ -32,7 +32,7 @@ def main():
   iterations_run = 0
 
   while True:
-    print str(bot)
+    print bot.getDebugText()
     bot.checkHealth(Keys.CTRL)
     bot.click(Keys.LEFT, 0.1)
     bot.click(Keys.D, 0.25)
@@ -46,7 +46,7 @@ def main():
       bot.click(Keys.A, 0.25)
       bot.click(Keys.A, 0.25)
 
-    print str(bot)
+    print bot.getDebugText()
     bot.checkHealth(Keys.CTRL)
     bot.click(Keys.RIGHT, 0.5)
     bot.click(Keys.D, 0.25)
@@ -61,14 +61,14 @@ def main():
       bot.click(Keys.A, 0.25)
 
     bot.checkHealth(Keys.CTRL)
-    # Clear mobs every 25 iterations with ultimate ability
-    if iterations_run % 25 == 0:
+    # Clear mobs every 20 iterations with ultimate ability
+    if iterations_run % 20 == 0:
       bot.click(Keys.DEL, 0.25)
 
-    # Buff self every 10 iterations
-    if iterations_run % 10 == 0:
+    # Buff self every 5 iterations
+    if iterations_run % 5 == 0:
       bot.click(Keys.END, 0.25)
-    print str(bot)
+    print bot.getDebugText()
 
   iterations_run += 1
 

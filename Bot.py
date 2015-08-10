@@ -44,11 +44,11 @@ class Bot():
     output += "Time elapsed: %02d:%02d:%02d\n" % (hours, minutes, seconds)
     output += ("=" * 80) + "\n"
     output += "Health potions used: %d\n" % self.hp_pots_used
-    output += "Health potions per minute: %d\n" % ((
-        timeDifference % 60) / self.hp_pots_used)
+    output += "Health potions per minute: %d\n" % (self.hp_pots_used / (
+        timeDifference % 60))
     output += "Mana potions used: %d\n" % self.mana_pots_used
-    output += "Mana potions per minute: %d\n" % ((
-        timeDifference % 60) / self.mana_pots_used)
+    output += "Mana potions per minute: %d\n" % (self.mana_pots_used / (
+        timeDifference % 60))
     return output
 
   """
