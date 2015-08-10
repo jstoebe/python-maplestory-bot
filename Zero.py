@@ -61,8 +61,9 @@ def main():
       bot.click(Keys.A, 0.25)
 
     bot.checkHealth(Keys.CTRL)
-    # Clear mobs every 20 iterations with ultimate ability
-    if iterations_run % 20 == 0:
+    
+    # Try to clear mobs every 2 iterations with ultimate ability
+    if iterations_run % 2 == 0:
       bot.click(Keys.DEL, 0.25)
 
     # Buff self every 5 iterations
