@@ -37,6 +37,7 @@ def main():
     bot.click(Keys.LEFT, 0.1)
     bot.click(Keys.D, 0.25)
     bot.click(Keys.D, 0.25)
+    bot.checkHealth(Keys.CTRL)
     bot.click(Keys.S, 0.25)
     bot.click(Keys.S, 0.25)
     bot.checkHealth(Keys.CTRL)
@@ -50,6 +51,7 @@ def main():
     bot.click(Keys.RIGHT, 0.5)
     bot.click(Keys.D, 0.25)
     bot.click(Keys.D, 0.25)
+    bot.checkHealth(Keys.CTRL)
     bot.click(Keys.S, 0.25)
     bot.click(Keys.S, 0.25)
     bot.checkHealth(Keys.CTRL)
@@ -58,6 +60,7 @@ def main():
       bot.click(Keys.A, 0.25)
       bot.click(Keys.A, 0.25)
 
+    bot.checkHealth(Keys.CTRL)
     # Clear mobs every 25 iterations with ultimate ability
     if iterations_run % 25 == 0:
       bot.click(Keys.DEL, 0.25)
