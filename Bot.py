@@ -1,14 +1,15 @@
+import math
+import pyautogui
+import sys
+import time
+
 """
+Author: Alvin Lin (alvin.lin@stuypulse.com)
 NoKeyboardException is raised when we cannot find the On-Screen Keyboard.
 
 Bot is a class that can do programmable actions. Initialize a bot and set
 a series of actions for it to do.
 """
-
-import math
-import pyautogui
-import sys
-import time
 
 pyautogui.FAILSAFE = True
 
