@@ -1,5 +1,4 @@
-Python bot for MapleStory
-========
+# Python bot for MapleStory
 
 Uses PyAutoGUI to spoof player actions. Since PyAutoGUI cannot send keyboard
 events directly to MapleStory, we use the On-Screen Keyboard built into
@@ -12,15 +11,25 @@ have an extra call.
 
 Zero.py is an example program that shows the implementation of Bot.py
 
-<br />
+# Setup
+## Windows
+You will need to install Python 2 on Windows as well as pyautogui.
+The easiest way is probably by installing `pip` and using pip to
+install pyautogui.
 
-### To use:
-  * Install <code>setuptools</code>
-  * Install <code>pyautogui</code>
-  * Open the On-Screen Keyboard and take a screenshot of it. Crop out the
+## Linux setup for development:
+```
+sudo apt-get install python-pip python-dev python-tk python-xlib
+sudo pip install pillow pyautogui
+```
+
+# To use:
+  - Open the On-Screen Keyboard and take a screenshot of it. Crop out the
   border so that you only have the keys and icon (copy the existing
-  <code>osk.png</code> as a template).
-  * Run MapleStory.
-  * Run your bot and switch to MapleStory.
+  `osk.png` as a template).
+  - Import Bot.py and write your own bot action sequence using it.
+  - Run MapleStory.
+  - Run your bot and switch to MapleStory.
 
-Copyright &copy; Alvin Lin 2015
+## Creator
+  - Alvin Lin (omgimanerd)
