@@ -33,3 +33,5 @@ sudo pip install pillow pyautogui
 
 ## Creator
   - Alvin Lin (omgimanerd)
+### Contributor
+  - Jonathan Stoebe (jstoebe)
